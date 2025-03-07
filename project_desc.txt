@@ -1,0 +1,135 @@
+We are building a text-based dungeon game. There are "rooms" that represents a new challenge for player.
+
+Main mission is to find an exit and that where you win. Player has to overcome some of challenges, find items and lastly find an exit.
+
+Gameplay:
+
+    Exploration: The player moves room to room. 
+
+    Encounters: In each room, the player might face an enemy, discover treasure, trigger a trap, or find the exit.
+
+    Decision Making: At every step, the player must decide whether to fight, use an item, solve a riddle, or change direction
+
+    Outcome: The player's actions affect their stats (health) and inventory, and determine whether they progress, gain rewards or suffer setbacks.
+
+
+Room types and roles:
+
+    Empty Rooms:
+
+        This basically lets user to relax between more challenging encounters
+
+        these rooms might have atmospheric descriptions and sometimes hidden clues or subtle hints about what lies ahead.
+
+    Enemy Rooms:
+
+        combat challenges
+
+        enemies are encountered with description of their appearance, strength or any peculiar behavior
+
+        Combat is resolved via a turn-based mechanism, where the player chooses actions like attacking, defending, or using an item.
+
+        Defeating an enemy might reward the player with items or boost stats.
+
+    Treasure Rooms:
+
+        Reward exploration
+
+        Treasure can also include items that can be used to unlock further parts of the dungeon.
+
+        treasures might be hidden behind puzzles or locked chests, requiring the player to use a specific key or solve a riddle.
+
+
+    Trap Rooms:
+
+        Increase risk and tension
+
+        traps may reduce the player's health
+
+        Some traps might be avoidable if the player has a clue, a tool, or an item
+    
+
+    Exit Room:
+
+        Serve as the goal and endpoint
+
+        The exit is usually locked or hidden behind a challenge (like a riddle or a boss enemy).
+
+        Reaching this room signifies victory, but the path there may require the cumulative use of items and knowledge gained along the way.
+
+
+Items: Types, Purpose, and Usage:
+
+    Items are central to the gameplay. They can be thought of as tools, rewards, or even strategic advantages that the player collects over time
+
+
+    Keys:
+
+        Unlock specific rooms or treasure chests.
+        Serve as progress markers (you need a key to open the exit door, for example).
+
+        When encountering a locked door or chest, the player must choose to “use” the key.
+        Keys might be one-time use or rechargeable based on game design (if you have only one key, decide carefully when to use it).
+
+
+    Potion:
+
+        Restore health or provide temporary boosts (like increased strength or defense).
+        Can also be used to neutralize certain traps.
+
+
+        The player can decide to use a potion during or outside of combat.
+        Potions require strategic management—using them too early might leave the player vulnerable in a later battle.
+
+    Weapons and Defensive Tools:
+
+        Although your game might assume a basic weapon is always available, special weapons can be rewards.
+        They might improve combat outcomes against tougher enemies.
+
+
+        In combat, choosing to use a better weapon could influence the damage dealt or provide unique effects (e.g., a flaming sword might do extra damage against certain enemies).
+        Defensive items like shields might reduce damage from enemy attacks.
+
+
+How Items Integrate with Game Mechanics:
+    Inventory System:
+        Tracking:
+            The game maintains an inventory where every collected item is recorded.
+            The player’s stats screen is updated with new items, showing what is available.
+        Usage Choices:
+            When faced with a decision (e.g., a locked door), the game might prompt the player with “You have a key. Would you like to use it?”
+            In combat, the inventory could be accessible to decide if a potion is needed for a health boost.
+        Strategic Depth:
+            Since some items are consumable, the player must decide the best moment to use them. For example, using a health potion in a minor skirmish might not be as beneficial as saving it for a major boss fight.
+
+    Interactions with Room Types:
+        Enemy Encounters:
+            Items like weapons or potions can change the tide of battle.
+            Enemies might drop items upon defeat, rewarding the player and sometimes hinting at their use later.
+        Treasure Rooms and Puzzles:
+            Keys and artifacts are often hidden in treasure rooms, requiring exploration and sometimes solving puzzles.
+            Puzzle solutions may depend on having seen clues in previous rooms, making the items part of a larger narrative puzzle.
+        Traps:
+            Items such as a potion may protect against traps.
+            Some traps might require a specific item to disable, integrating the inventory system with the level design.
+
+
+    Progression and Difficulty:
+        Scaling Challenges:
+            As the player collects items and improves stats, the challenges (enemy strength, trap severity) might also increase.
+            This keeps the game balanced and engaging, ensuring that strategic item management is key to progression.
+        Replayability:
+            Randomized placement of items in the dungeon can offer a unique experience with each playthrough.
+            Different items in different rooms force the player to adapt their strategy based on what they find.
+
+Narrative and Atmosphere
+
+    Storytelling Through Environment:
+
+        Each room has a rich description that sets the mood—whether it's a dim corridor hinting at danger or a treasure room glowing with hope.
+        The items and encounters are woven into the narrative. For example, discovering a weathered key in an enemy’s possession can hint at a larger backstory or mystery.
+
+    Player Agency:
+
+        The choices the player makes—whether to use an item, how to respond to a trap, or which direction to explore—drive the unfolding story.
+        Dialogues, descriptive text, and environmental clues make the player feel like an active participant in a living, breathing dungeon.
