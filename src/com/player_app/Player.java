@@ -3,7 +3,7 @@ package com.player_app;
 import java.util.ArrayList;
 
 // The Player class holds the player's stats and inventory.
-class Player {
+public class Player {
     int health;
     ArrayList<String> inventory;
     private final int MaxHealth = 100;
