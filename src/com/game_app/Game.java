@@ -2,6 +2,7 @@ package com.game_app;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 import com.player_app.*;
@@ -32,25 +33,18 @@ public class Game {
         // Scanner for reading input between rooms.
         Scanner scanner = new Scanner(System.in);
 
-        Room[][] dungeon = new Room[3][3];
+        // Define dungeon dimensions.
+        int rows = 3;
+        int cols = 3;
 
-        // Define the layout of the dungeon.
-        // Row 0
-        dungeon[0][0] = new EnemyRoom();
-        dungeon[0][1] = new TreasureRoom();
-        dungeon[0][2] = new TrapRoom();
-        // Row 1
-        dungeon[1][0] = new EmptyRoom();
-        dungeon[1][1] = new EmptyRoom(); // Starting room.
-        dungeon[1][2] = new EnemyRoom();
-        // Row 2
-        dungeon[2][0] = new TreasureRoom();
-        dungeon[2][1] = new TrapRoom();
-        dungeon[2][2] = new ExitRoom();
+        // Generate the dungeon dynamically.
+        Room[][] dungeon = generateDungeon(rows, cols);
 
-        // Set the starting coordinates. In this example, we start at (1,1).
-        int currentRow = 1;
-        int currentCol = 1;
+        // Set the starting position at the center.
+        int currentRow = rows / 2;
+        int currentCol = cols / 2;
+        // Force the starting room to be safe.
+        dungeon[currentRow][currentCol] = new EmptyRoom();
 
         while (true) {
             System.out.println("\nYou are now at position (" + currentRow + ", " + currentCol + ").");
@@ -115,7 +109,7 @@ public class Game {
                 String potion = scanner.nextLine();
 
                 if (potion.equalsIgnoreCase("y")) {
-                    int healAmount = 20;
+                    int healAmount = 10;
                     player.health += healAmount;
                     // Cap the health at 100.
                     if (player.health > 100) {
@@ -137,5 +131,37 @@ public class Game {
         // then we conclude the adventure.
         System.out.println("You have reached the end of your journey, but the exit remains elusive.");
         System.out.println("\n" + EndingMessage);
+    }
+
+
+    // Generates a dungeon (2D grid) with random rooms.
+    private Room[][] generateDungeon(int rows, int cols) {
+        Room[][] dungeon = new Room[rows][cols];
+        Random random = new Random();
+
+        // Fill the grid with random room types.
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                double r = random.nextDouble(); // 0.0 <= r < 1.0
+                if (r < 0.4) {
+                    dungeon[i][j] = new EmptyRoom();
+                } else if (r < 0.7) {
+                    dungeon[i][j] = new EnemyRoom();
+                } else if (r < 0.9) {
+                    dungeon[i][j] = new TrapRoom();
+                } else {
+                    dungeon[i][j] = new TreasureRoom();
+                }
+            }
+        }
+        // Choose a random cell (excluding the starting position) to be the ExitRoom.
+        int exitRow, exitCol;
+        do {
+            exitRow = random.nextInt(rows);
+            exitCol = random.nextInt(cols);
+        } while (exitRow == rows / 2 && exitCol == cols / 2);
+        dungeon[exitRow][exitCol] = new ExitRoom();
+        
+        return dungeon;
     }
 }
