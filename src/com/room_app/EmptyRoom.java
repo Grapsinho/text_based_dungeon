@@ -1,5 +1,7 @@
 package com.room_app;
 
+import java.util.Scanner;
+
 import com.player_app.*;
 
 // EmptyRoom is a simple room that extends Room.
@@ -12,7 +14,7 @@ public class EmptyRoom extends Room {
         super("");
         
         final String[] EmptyRoomDescriptions = {
-            "You step into the room and feel an immediate drop in temperature. The air is still and heavy, and the \nsilence seems almost oppressive. A single beam of light from the far corner reveals faded, cracked stone \nwalls. There's no sign of movement, but you can almost feel something watching.\n Perhaps you're meant to simply wait here… or maybe it's a trick of the mind.",
+            "You step into the room and feel an immediate drop in temperature. The air is still and heavy, and the \nsilence seems almost oppressive. A single beam of light from the far corner reveals faded, cracked stone \nwalls. There's no sign of movement, but you can almost feel something watching.\nPerhaps you're meant to simply wait here… or maybe it's a trick of the mind.",
     
             "The room is unnervingly quiet, save for the soft rustle of something unseen—perhaps the wind shifting \nthrough the cracks in the walls. The floor is dusted with old footprints, their origin long forgotten.\nAt the far end of the room, a large, ornate mirror reflects nothing but shadows. For a brief moment, you swear\nthe reflection doesn't match your movements.",
     
@@ -25,7 +27,7 @@ public class EmptyRoom extends Room {
 
     // display the description and the player's stats.
     @Override
-    public void enterRoom(Player player) {
+    public void enterRoom(Player player, Scanner scanner) {
         System.out.println(description);
         player.showStats();
     }
