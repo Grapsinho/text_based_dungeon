@@ -49,10 +49,8 @@ public class Game {
         while (true) {
             System.out.println("\nYou are now at position (" + currentRow + ", " + currentCol + ").");
 
-            // Enter the current room.
             dungeon[currentRow][currentCol].enterRoom(player, scanner);
 
-            // Check if the player's health has dropped to 0 or below.
             if (player.health <= 0) {
                 System.out.println("Game Over! You died in the dungeon.");
                 break;
@@ -82,8 +80,6 @@ public class Game {
 
             String direction = scanner.nextLine();
 
-            // Calculate new coordinates based on the chosen direction.
-
             if (direction.equalsIgnoreCase("n")) {
                 newRow = currentRow - 1;
             } else if (direction.equalsIgnoreCase("s")) {
@@ -111,7 +107,7 @@ public class Game {
                 if (potion.equalsIgnoreCase("y")) {
                     int healAmount = 10;
                     player.health += healAmount;
-                    // Cap the health at 100.
+
                     if (player.health > 100) {
                         player.health = 100;
                     }
@@ -127,9 +123,7 @@ public class Game {
         }
 
         scanner.close();
-        // If the player exits the last room without ending the game (like solving the riddle),
-        // then we conclude the adventure.
-        System.out.println("You have reached the end of your journey, but the exit remains elusive.");
+
         System.out.println("\n" + EndingMessage);
     }
 
@@ -139,7 +133,6 @@ public class Game {
         Room[][] dungeon = new Room[rows][cols];
         Random random = new Random();
 
-        // Fill the grid with random room types.
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
                 double r = random.nextDouble(); // 0.0 <= r < 1.0

@@ -8,7 +8,7 @@ import com.player_app.Player;
 // ExitRoom: Final room where the player faces a final boss that drops a key.
 // The boss can be a Riddler Boss (no retreat allowed) or a Combat Boss (player may retreat).
 public class ExitRoom extends Room {
-    // Instance variables to persist the final boss state.
+
     private boolean bossInitialized = false;
     private boolean isRiddlerBoss;
     private int combatBossHealth; // Only used if the boss is a Combat Boss.
@@ -40,9 +40,8 @@ public class ExitRoom extends Room {
         }
 
         if (isRiddlerBoss) {
-            // Riddler Boss: No retreat allowed.
             System.out.println("A Riddler Boss appears! Answer all his riddles correctly to defeat him.");
-            // Define five riddles and their answers.
+
             String[][] riddles = {
                 {"I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?", "echo"},
                 {"You measure my life in hours and I serve you by expiring. I'm quick when I'm thin and slow when I'm fat. What am I?", "candle"},
@@ -75,7 +74,6 @@ public class ExitRoom extends Room {
                 System.exit(0);
             }
         } else {
-            // Combat Boss encounter.
             System.out.println("A Combat Boss appears! Prepare for battle.");
             boolean bossDefeated = false;
             while (combatBossHealth > 0 && player.health > 0) {
@@ -99,7 +97,7 @@ public class ExitRoom extends Room {
                     }
                 } else if (choice.equalsIgnoreCase("p")) {
                     if (player.inventory.contains("Potion")) {
-                        int healAmount = 20;
+                        int healAmount = 10;
                         player.inventory.remove("Potion");
                         player.health += healAmount;
                         if (player.health > 100) {

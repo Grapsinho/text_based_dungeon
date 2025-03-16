@@ -28,10 +28,9 @@ public class TreasureRoom extends Room {
         String choice = scanner.nextLine();
 
         if (choice.equalsIgnoreCase("y")) {
-            // Define how much health the potion restores.
             int healAmount = 10;
             player.health += healAmount;
-            // Cap the health at 100.
+
             if (player.health > 100) {
                 player.health = 100;
             }
